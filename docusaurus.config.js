@@ -10,7 +10,7 @@ const structuredData = JSON.stringify({
   name: "Mojo Docs",
   url: siteUrl,
   description:
-    "A curated hub for Mojo resources, commentary, and jumping-off points.",
+    "Curated Mojo resources, community guides, and project docs all in one place.",
   potentialAction: {
     "@type": "SearchAction",
     target: `${siteUrl}/search?q={search_term_string}`,
@@ -41,7 +41,7 @@ function structuredDataPlugin() {
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Mojo Docs",
-  tagline: "A friendly hub for people curious about Mojo",
+  tagline: "Curated Mojo resources, community guides, and project docs",
   url: siteUrl,
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -72,6 +72,12 @@ const config = {
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
+        sitemap: {
+          changefreq: "weekly",
+          priority: 0.7,
+          filename: "sitemap.xml",
+          ignorePatterns: ["/tags/**"],
+        },
       },
     ],
   ],
@@ -86,12 +92,12 @@ const config = {
         {
           name: "description",
           content:
-            "Mojo Docs is a playful hub pointing to the best official docs, blog posts, and community threads.",
+            "Mojo Docs is a playful hub pointing to the best official docs, community guides, and project write-ups for Mojo.",
         },
         {
           name: "keywords",
           content:
-            "Mojo programming language, Modular, Mojo hub, Mojo resources, GPU programming",
+            "Mojo programming language, Modular, Mojo guides, project docs, GPU programming",
         },
         {
           property: "og:type",
@@ -104,11 +110,40 @@ const config = {
         {
           property: "og:description",
           content:
-            "Independent, curated links to help you explore the Mojo ecosystem.",
+            "Independent, curated links, community guides, and project docs to help you explore the Mojo ecosystem.",
         },
         {
           property: "og:url",
           content: siteUrl,
+        },
+        {
+          name: "robots",
+          content: "index, follow",
+        },
+        {
+          name: "author",
+          content: "Mojo Docs community",
+        },
+        {
+          name: "theme-color",
+          content: "#d94600",
+        },
+        {
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          name: "twitter:title",
+          content: "Mojo Docs",
+        },
+        {
+          name: "twitter:description",
+          content:
+            "Independent, curated links, community guides, and project docs to help you explore the Mojo ecosystem.",
+        },
+        {
+          name: "twitter:image",
+          content: `${siteUrl}/img/logo.svg`,
         },
       ],
       navbar: {
@@ -123,6 +158,11 @@ const config = {
             docId: "index",
             position: "left",
             label: "Docs",
+          },
+          {
+            to: "/projects",
+            label: "Projects",
+            position: "left",
           },
           {
             to: "/about",
@@ -156,6 +196,14 @@ const config = {
               {
                 label: "Tooling notes",
                 to: "/docs/modular-tools",
+              },
+              {
+                label: "Community guides",
+                to: "/docs/community-guides/",
+              },
+              {
+                label: "Project docs",
+                to: "/docs/project-docs/",
               },
             ],
           },

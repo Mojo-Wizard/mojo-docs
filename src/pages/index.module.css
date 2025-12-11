@@ -8,6 +8,13 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background-image: linear-gradient(
+      rgba(255, 108, 0, 0.9),
+      rgba(255, 130, 20, 0.85)
+    ),
+    url("https://cdn.prod.website-files.com/63f9f100025c058594957cca%2F6893a648b93c8808e59a182f_MojoLoop-1x1-min20-poster-00001.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .heroKicker {
@@ -55,4 +62,16 @@
 .primaryButton:hover {
   background: #1c1f2d;
   color: #ffffff;
+}
+
+.ghostLink {
+  color: #d94600;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+}
+
+.ghostLink:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }

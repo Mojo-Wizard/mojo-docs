@@ -1,0 +1,199 @@
+.pageIntro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.controlsWrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;
+  cursor: grab;
+  scroll-behavior: smooth;
+}
+
+.controls::-webkit-scrollbar {
+  display: none;
+}
+
+.controlsDragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+.controlButton {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 0.35rem 1.1rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.controlButtonActive {
+  background: #d94600;
+  border-color: #d94600;
+  color: #fff;
+}
+
+.controlsWrapper::before,
+.controlsWrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  pointer-events: none;
+}
+
+.controlsWrapper::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(13, 15, 22, 1),
+    rgba(13, 15, 22, 0)
+  );
+}
+
+.controlsWrapper::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(13, 15, 22, 1),
+    rgba(13, 15, 22, 0)
+  );
+}
+
+.controlsSpacer {
+  flex: 0 0 20px;
+}
+
+.scrollHint {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-65%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.scrollHint:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.scrollHintLeft {
+  left: -2.5rem;
+}
+
+.scrollHintRight {
+  right: -2.5rem;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.projectCard {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.25rem;
+  background: rgba(13, 15, 22, 0.85);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 220px;
+}
+
+.projectTitle {
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+
+.projectDescription {
+  color: rgba(255, 255, 255, 0.75);
+  flex: 1;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+  width: fit-content;
+}
+
+.links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.linkButton {
+  font-size: 0.85rem;
+  color: #ff8f5c;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.linkButton:hover {
+  color: #ffd89c;
+  border-color: #ffd89c;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.pagination button {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: inherit;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination button:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.emptyState {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 2rem 0;
+}

@@ -18,15 +18,15 @@ function HomepageHeader() {
           I grabbed this domain to host an open-source Mojo doc project. Before
           I shipped anything, I discovered Modular’s community-owned docs were
           already fantastic. Instead of letting the domain collect dust, I
-          pivoted this space into a living scrapbook of links, commentary, and
-          quick explanations, and I’ll keep layering new experiments here so it
-          becomes more helpful over time.
+          turned this into a curated launchpad with official doc pointers,
+          community-written guides, and room for full project docs as they roll
+          in.
         </p>
         <Link className={styles.primaryButton} to="/docs/">
           Browse the docs
         </Link>
         <div className={styles.buttons}>
-          <Link className="button button--link button--lg" to="/about">
+          <Link className={styles.ghostLink} to="/about">
             Why this exists
           </Link>
         </div>
@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <Layout
       title={`Welcome to ${siteConfig.title}`}
-      description="A playful hub that points to the best Mojo language resources."
+      description="A playful hub with curated Mojo docs, community guides, and hosted project write-ups."
     >
       <HomepageHeader />
       <main>
