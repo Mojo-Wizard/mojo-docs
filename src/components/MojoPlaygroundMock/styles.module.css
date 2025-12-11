@@ -1,0 +1,67 @@
+.playground {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-weight: 600;
+  margin: 0;
+}
+
+.runButton {
+  background: var(--ifm-color-primary);
+  color: var(--ifm-color-white);
+  border: none;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.runButton:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.editor {
+  width: 100%;
+  min-height: 180px;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.95rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.75rem;
+  resize: vertical;
+}
+
+.output {
+  margin-top: 0.75rem;
+  background: var(--ifm-pre-background);
+  border-radius: 0.35rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.outputLabel {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 0.75rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  opacity: 0.8;
+}
+
+.output pre {
+  margin: 0;
+  padding: 0.75rem;
+  font-family: var(--ifm-font-family-monospace);
+  white-space: pre-wrap;
+}

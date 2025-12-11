@@ -1,130 +1,201 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+
+const siteUrl = "https://mojo-docs.example.com";
+const structuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Mojo Docs",
+  url: siteUrl,
+  description:
+    "A curated hub for Mojo resources, commentary, and jumping-off points.",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${siteUrl}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
+  inLanguage: "en",
+});
+
+function structuredDataPlugin() {
+  return {
+    name: "mojo-structured-data",
+    injectHtmlTags() {
+      return {
+        headTags: [
+          {
+            tagName: "script",
+            attributes: {
+              type: "application/ld+json",
+            },
+            innerHTML: structuredData,
+          },
+        ],
+      };
+    },
+  };
+}
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  title: "Mojo Docs",
+  tagline: "A friendly hub for people curious about Mojo",
+  url: siteUrl,
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/favicon.ico",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: "mojo-wizard",
+  projectName: "Mojo Programming Language Documentation",
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      "classic",
+      {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          sidebarPath: require.resolve("./sidebars.js"),
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+        blog: false,
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
-      }),
+      },
     ],
   ],
+
+  plugins: [structuredDataPlugin],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      image: "img/logo.svg",
+      metadata: [
+        {
+          name: "description",
+          content:
+            "Mojo Docs is a playful hub pointing to the best official docs, blog posts, and community threads.",
+        },
+        {
+          name: "keywords",
+          content:
+            "Mojo programming language, Modular, Mojo hub, Mojo resources, GPU programming",
+        },
+        {
+          property: "og:type",
+          content: "website",
+        },
+        {
+          property: "og:title",
+          content: "Mojo Docs",
+        },
+        {
+          property: "og:description",
+          content:
+            "Independent, curated links to help you explore the Mojo ecosystem.",
+        },
+        {
+          property: "og:url",
+          content: siteUrl,
+        },
+      ],
       navbar: {
-        title: 'My Site',
+        title: "Mojo Docs",
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: "Mojo Docs flame mark",
+          src: "img/logo.svg",
         },
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'Tutorial',
+            type: "doc",
+            docId: "index",
+            position: "left",
+            label: "Docs",
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
+            to: "/about",
+            label: "About",
+            position: "left",
           },
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Docs',
+            title: "Docs",
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: "Overview",
+                to: "/docs/",
+              },
+              {
+                label: "Language basics",
+                to: "/docs/modular-language-basics",
+              },
+              {
+                label: "Standard library",
+                to: "/docs/modular-standard-library",
+              },
+              {
+                label: "MAX & GPU",
+                to: "/docs/modular-max-ai",
+              },
+              {
+                label: "Tooling notes",
+                to: "/docs/modular-tools",
               },
             ],
           },
           {
-            title: 'Community',
+            title: "Site",
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: "About",
+                to: "/about",
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: "Community & blog picks",
+                to: "/docs/community-and-blog",
               },
             ],
           },
           {
-            title: 'More',
+            title: "Official resources",
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: "Modular Mojo docs",
+                href: "https://docs.modular.com/mojo/",
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: "Modular MAX docs",
+                href: "https://docs.modular.com/mojo/max/",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Mojo Docs. Maintained with love.`,
+      },
+      colorMode: {
+        defaultMode: "dark",
+        disableSwitch: true,
       },
       prism: {
-        theme: lightCodeTheme,
+        theme: darkCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ["python", "rust"],
       },
     }),
 };

@@ -10,6 +10,22 @@
   overflow: hidden;
 }
 
+.heroKicker {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-white);
+  opacity: 0.72;
+}
+
+.heroVersion {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-white);
+  opacity: 0.85;
+}
+
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
@@ -20,4 +36,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.primaryButton {
+  margin-top: 1.5rem;
+  padding: 0.85rem 2.4rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #d94600;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.primaryButton:hover {
+  background: #1c1f2d;
+  color: #ffffff;
 }
