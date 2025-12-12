@@ -37,7 +37,26 @@ main,
 /* Remove default list bullets for a cleaner layout */
 .theme-doc-markdown ul {
   list-style: none;
-  padding-left: 0;
+  padding-left: 1.5rem;
+  margin-left: 0;
+}
+
+.theme-doc-markdown ul li {
+  position: relative;
+  margin-left: 0;
+  padding-left: 0.25rem;
+}
+
+.theme-doc-markdown ul li::before {
+  content: "";
+  position: absolute;
+  left: -1.3rem;
+  top: 0.55rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #d17128;
+  box-shadow: 0 0 6px rgba(255, 111, 0, 0.488);
 }
 
 .navbar {

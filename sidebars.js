@@ -19,7 +19,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Community Guides',
-      items: ['community-guides'],
+      items: ['community-guides', 'community-guides/mojo-by-example'],
     },
     {
       type: 'category',

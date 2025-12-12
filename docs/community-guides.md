@@ -5,26 +5,22 @@ title: Overview
 
 # Overview
 
-I eventually want this hub to spotlight write-ups created by the community: how real projects structure their Mojo code, how they integrate with Python, and what lessons popped up along the way. That content belongs here - not hidden behind yet another repo README.
+Community Guides is where we collect **learning material written by the Mojo community** - tutorials, “by example” books, deep dives, checklists, and any other resource that helps someone actually learn the language. These guides may live on personal blogs or GitHub gists; this hub simply summarizes why they’re useful, how current they are, and where to find them.
 
-## How this section will work
+Use this section when you want:
 
-Each project gets its own short page that covers:
+- A narrative walkthrough (e.g., Mojo by Example, GPU primers, ownership cheat sheets).
+- A curated set of exercises or puzzles.
+- Seasoned notes from folks who already ported Python, Rust, or CUDA projects into Mojo.
 
-- What the project does and why it exists.
-- Links to the canonical docs or repo.
-- Notes from the maintainers (what went well, rough edges, tuning tricks).
-- Any “read this next” recommendations so readers know where to dive deeper.
+## How to add a guide
 
-Those pages will live alongside this overview once contributions land.
+1. Open an issue (or PR) describing:
+   - Guide title & author
+   - Where the content lives (URL, repository)
+   - Why it’s valuable (what audience, what topics)
+   - Any caveats (outdated chapters, experimental APIs)
+2. Add a Markdown file underneath `docs/community-guides/` (you can nest folders if you want a multi-page guide). Keep the tone conversational but always link to the original source.
+3. Update `sidebars.js` so the guide is visible in the Community Guides category.
 
-## Want your guide featured?
-
-1. Open an issue (or PR) in this repository with:
-   - Project name and repo link.
-   - Category (the same one you’d use for the [Projects directory](/projects)).
-   - A short outline describing the sections you want to add.
-2. Once we align on scope, submit a pull request that adds a `.md` file under `docs/community-guides/` (feel free to nest folders if the project needs multiple pages).
-3. Link back to your canonical docs or website. This hub is a curator, not a replacement.
-
-If you already maintain great docs, that’s perfect - add context here so people know why they should read yours. The goal is to celebrate the community’s best knowledge and make it simple to discover.
+The goal is to celebrate community teaching. If you already maintain an excellent guide, surface it here so readers can discover it quickly, and so we can track its freshness over time.

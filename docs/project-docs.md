@@ -5,7 +5,9 @@ title: Overview
 
 # Overview
 
-This section is a parking spot for the day maintainers want to host their own documentation here - either as a full import or as a short overview that points to deeper references. No projects are using it yet, but the moment someone wants to experiment, everything is ready.
+Project Docs is for **project-specific documentation**: design notes, integration tips, release guides, or full manuals that maintainers want to host alongside Mojo Docs. Unlike the Community Guides (which focus on learning the language), this section is about shipping software - how your package works, how people should use it, and what to watch out for.
+
+Nothing lives here yet, but the scaffolding is ready the moment a maintainer wants to experiment.
 
 ## Two ways to participate
 
@@ -26,4 +28,4 @@ Either way, every entry should include:
 3. Reference any upstream build steps if you’re syncing existing docs (generators, diagrams, etc.).
 4. Update `sidebars.js` so your project appears under the Project Docs section.
 
-Not ready to write the page yourself? Open an issue anyway - someone else from the community might help bring it to life.
+Not ready to write the page yourself? Open an issue anyway - someone else from the community might help bring it to life. The sooner we collect real project documentation here, the easier it becomes for new users to adopt those tools.
