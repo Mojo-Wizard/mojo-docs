@@ -3,7 +3,7 @@
 
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
-const siteUrl = "https://mojo-docs.example.com";
+const siteUrl = process.env.SITE_URL || "https://mojo-docs.com";
 const structuredData = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebSite",

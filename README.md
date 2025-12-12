@@ -1,6 +1,6 @@
 # Mojo Docs
 
-This repository powers [Mojo Docs](https://mojo-docs.example.com), a curated hub that highlights the best official resources for the Mojo programming language.
+This repository powers [Mojo Docs](https://mojo-docs.com), a curated hub that highlights the best official resources for the Mojo programming language.
 
 ## Developing locally
 
