@@ -21,7 +21,7 @@
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   color: var(--ifm-color-white);
   opacity: 0.72;
 }
@@ -65,13 +65,12 @@
 }
 
 .ghostLink {
-  color: #d94600;
-  font-weight: 600;
+  color: #ffffff;
+  font-weight: 400;
   text-decoration: none;
   padding: 0.35rem 0.75rem;
 }
 
 .ghostLink:hover {
-  color: #ffffff;
   text-decoration: underline;
 }

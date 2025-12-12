@@ -13,7 +13,7 @@ function HomepageHeader() {
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
         <p className={styles.heroKicker}>Unofficial, unapologetically human</p>
-        <h1 className="hero__title">{siteConfig.title}</h1>
+        <h1 className="hero__title">Mojo Docs</h1>
         <p className="hero__subtitle">
           I grabbed this domain to host an open-source Mojo doc project. Before
           I shipped anything, I discovered Modular’s community-owned docs were
@@ -25,11 +25,6 @@ function HomepageHeader() {
         <Link className={styles.primaryButton} to="/docs/">
           Browse the docs
         </Link>
-        <div className={styles.buttons}>
-          <Link className={styles.ghostLink} to="/about">
-            Why this exists
-          </Link>
-        </div>
       </div>
     </header>
   );
@@ -39,7 +34,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Welcome to ${siteConfig.title}`}
+      title="Mojo Docs – curated Mojo links, guides, and project docs"
       description="A playful hub with curated Mojo docs, community guides, and hosted project write-ups."
     >
       <HomepageHeader />

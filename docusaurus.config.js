@@ -40,8 +40,9 @@ function structuredDataPlugin() {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Mojo Docs",
-  tagline: "Curated Mojo resources, community guides, and project docs",
+  title: "Mojo Docs - Curated Mojo Learning Hub",
+  tagline:
+    "Independent guides, official doc pointers, and community project notes",
   url: siteUrl,
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -105,7 +106,7 @@ const config = {
         },
         {
           property: "og:title",
-          content: "Mojo Docs",
+          content: "Mojo Docs – Curated Mojo Learning Hub",
         },
         {
           property: "og:description",
