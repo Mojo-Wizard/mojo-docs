@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useRef, useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import styles from './projects.module.css';
@@ -28,6 +28,7 @@ const CATEGORY_DEFINITIONS = [
   {id: 'robotics-embedded', label: 'Robotics & Embedded'},
   {id: 'finance-trading', label: 'Finance'},
   {id: 'games-creative', label: 'Games & Creative'},
+  {id: 'learn-play', label: 'Learn & Play'},
 ];
 
 const categoryMap = CATEGORY_DEFINITIONS.reduce((acc, def) => {
@@ -40,64 +41,10 @@ const PAGE_SIZE = 6;
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
-  const [dragging, setDragging] = useState(false);
-  const [showLeftHint, setShowLeftHint] = useState(false);
-  const [showRightHint, setShowRightHint] = useState(true);
-
-  const controlsRef = useRef(null);
-  const dragState = useRef({isDragging: false, startX: 0, scrollLeft: 0});
-
-  useEffect(() => {
-    updateHints();
-  }, []);
-
-  const handlePointerDown = (clientX) => {
-    const scroller = controlsRef.current;
-    if (!scroller) return;
-    dragState.current = {
-      isDragging: true,
-      startX: clientX,
-      scrollLeft: scroller.scrollLeft,
-    };
-    setDragging(true);
-  };
-
-  const handlePointerMove = (clientX, preventDefault = false) => {
-    if (!dragState.current.isDragging) return;
-    const scroller = controlsRef.current;
-    if (!scroller) return;
-    const dx = clientX - dragState.current.startX;
-    if (preventDefault) {
-      preventDefault();
-    }
-    scroller.scrollLeft = dragState.current.scrollLeft - dx;
-    updateHints();
-  };
-
-  const endDrag = () => {
-    dragState.current.isDragging = false;
-    setDragging(false);
-  };
-
-  const scrollToStart = () => {
-    controlsRef.current?.scrollTo({left: 0, behavior: 'smooth'});
-    setTimeout(updateHints, 200);
-  };
-
-  const scrollToEnd = () => {
-    const scroller = controlsRef.current;
-    if (!scroller) return;
-    scroller.scrollTo({left: scroller.scrollWidth, behavior: 'smooth'});
-    setTimeout(updateHints, 200);
-  };
-
-  const updateHints = () => {
-    const scroller = controlsRef.current;
-    if (!scroller) return;
-    const {scrollLeft, scrollWidth, clientWidth} = scroller;
-    setShowLeftHint(scrollLeft > 8);
-    setShowRightHint(scrollLeft + clientWidth < scrollWidth - 8);
-  };
+  const categories = useMemo(
+    () => [{id: 'all', label: 'All projects'}, ...CATEGORY_DEFINITIONS],
+    [],
+  );
 
   const filteredProjects = useMemo(() => {
     if (activeCategory === 'all') {
@@ -137,63 +84,18 @@ export default function ProjectsPage() {
           </p>
         </div>
 
-        <div className={styles.controlsWrapper}>
-          {showLeftHint ? (
+        <div className={styles.categoryList}>
+          {categories.map((category) => (
             <button
               type="button"
-              className={clsx(styles.scrollHint, styles.scrollHintLeft)}
-              onClick={scrollToStart}>
-              ⟨
-            </button>
-          ) : null}
-          {showRightHint ? (
-            <button
-              type="button"
-              className={clsx(styles.scrollHint, styles.scrollHintRight)}
-              onClick={scrollToEnd}>
-              ⟩
-            </button>
-          ) : null}
-          <div
-            ref={controlsRef}
-            className={clsx(styles.controls, {[styles.controlsDragging]: dragging})}
-            onMouseDown={(e) => handlePointerDown(e.clientX)}
-            onMouseMove={(e) => {
-              if (dragState.current.isDragging) {
-                e.preventDefault();
-                handlePointerMove(e.clientX);
-              }
-            }}
-            onMouseLeave={endDrag}
-            onMouseUp={endDrag}
-            onTouchStart={(e) => handlePointerDown(e.touches[0].clientX)}
-            onTouchMove={(e) =>
-              handlePointerMove(e.touches[0].clientX, () => e.preventDefault())
-            }
-            onTouchEnd={endDrag}
-            onScroll={updateHints}>
-            <div className={styles.controlsSpacer} />
-            <button
-              type="button"
-              className={clsx(styles.controlButton, {
-                [styles.controlButtonActive]: activeCategory === 'all',
+              key={category.id}
+              className={clsx(styles.categoryButton, {
+                [styles.categoryButtonActive]: activeCategory === category.id,
               })}
-              onClick={() => handleCategoryChange('all')}>
-              All
+              onClick={() => handleCategoryChange(category.id)}>
+              {category.label}
             </button>
-            {CATEGORY_DEFINITIONS.map((category) => (
-              <button
-                type="button"
-                key={category.id}
-                className={clsx(styles.controlButton, {
-                  [styles.controlButtonActive]: activeCategory === category.id,
-                })}
-                onClick={() => handleCategoryChange(category.id)}>
-                {category.label}
-              </button>
-            ))}
-            <div className={styles.controlsSpacer} />
-          </div>
+          ))}
         </div>
 
         {pageItems.length === 0 ? (

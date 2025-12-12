@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "name": "Mojo GPU Puzzles",
+    "description": "Browser-based puzzle game from Modular that teaches Mojo GPU programming concepts through hands-on challenges.",
+    "repoUrl": "https://puzzles.modular.com/",
+    "docsUrl": "https://puzzles.modular.com/",
+    "category": "learn-play",
+    "homepage": "https://puzzles.modular.com/"
+  }
+]

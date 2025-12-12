@@ -59,7 +59,8 @@ Each entry should look like this:
   "description": "One-paragraph summary of what the project does.",
   "repoUrl": "https://github.com/owner/project",
   "docsUrl": "https://project-site/docs", // optional
-  "category": "gpu-accelerator"
+  "category": "gpu-accelerator",
+  "homepage": "https://project-site/" // optional
 }
 ```
 
@@ -97,6 +98,7 @@ Guidelines:
 | `robotics-embedded`              | Robotics, Aerospace and Embedded      |
 | `finance-trading`                | Finance and Trading                   |
 | `games-creative`                 | Games and Creative Coding             |
+| `learn-play`                     | Learning playgrounds & interactive demos |
 
 Pick the slug that best describes the primary goal of the project.
 
